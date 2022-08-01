@@ -44,7 +44,7 @@ Please follow this guide: https://vercel.com/docs/concepts/git
 
 #### App
 
-1.Follow the default setup for Create React App.
+1.Follow the default setup for Next.js.
 
 #### Storybook
 
