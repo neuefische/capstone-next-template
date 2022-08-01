@@ -5,7 +5,14 @@
     "browser": true,
     "jest/globals": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier", "react-app"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:storybook/recommended",
+    "plugin:prettier/recommended",
+    "next",
+    "next/core-web-vitals"
+  ],
   "parserOptions": {
     "ecmaVersion": 2021,
     "ecmaFeatures": {
@@ -13,12 +20,10 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["storybook", "react", "react-hooks", "jest", "unicorn"],
+  "plugins": ["unicorn", "prettier", "jest"],
   "overrides": [
     {
-      "files": [
-        "**/*.stories.*"
-      ],
+      "files": ["**/*.stories.*"],
       "rules": {
         "import/no-anonymous-default-export": "off"
       }

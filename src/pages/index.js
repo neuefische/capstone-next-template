@@ -1,6 +1,6 @@
 import {nanoid} from 'nanoid';
+import Head from 'next/head';
 import {useState} from 'react';
-import {Helmet} from 'react-helmet';
 
 import Button from '../components/Button';
 import Layout from '../components/Layout';
@@ -22,10 +22,10 @@ export default function HomePage() {
 
 	return (
 		<Layout>
-			<Helmet>
+			<Head>
 				<title key="title">My Project</title>
 				<meta key="description" name="description" content="This is my project" />
-			</Helmet>
+			</Head>
 			<h1>Home</h1>
 			{loading && <div>Loading...</div>}
 			{error && <div>{error.message}</div>}

@@ -34,3 +34,6 @@ cypress/cucumber-json
 
 # IDE
 .idea
+
+# Next.js cache
+/.next/
