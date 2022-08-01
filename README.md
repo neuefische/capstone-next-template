@@ -78,7 +78,7 @@ and [testing-library](https://testing-library.com/docs/react-testing-library/int
 **Run the development server:**
 
 ```bash
-npm run start
+npm run dev
 ```
 
 **Build:**
