@@ -1,6 +1,6 @@
-# React App
+# Next.js App
 
-This is a template for a [Create React App](https://create-react-app.dev/) with additional tools.
+This is a template for [Next.js](https://nextjs.org/) with additional tools.
 
 <!-- toc -->
 
