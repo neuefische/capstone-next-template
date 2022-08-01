@@ -11,7 +11,6 @@ This is a template for a [Create React App](https://create-react-app.dev/) with 
         -   [Storybook](#storybook)
 -   [Getting started](#getting-started)
 -   [Test Driven Development](#test-driven-development)
--   [Commitlint](#commitlint)
 -   [Commands](#commands)
 
 <!-- tocstop -->
@@ -20,6 +19,7 @@ It uses the following tools/libraries:
 
 ## Tech-Stack
 
+-   [Next.js](https://nextjs.org/)
 -   [Storybook](https://storybook.js.org/)
 -   [Jest](https://jestjs.io/)
 -   [Testing Library](https://testing-library.com/)
@@ -97,14 +97,6 @@ npm run storybook
 
 ```shell
 npm run storybook:build
-```
-
-**Run unit tests:**
-
-```shell
-npm run jest
-# npm run jest:watch # watch
-# npm run test:unit # same as "npm run jest"
 ```
 
 **Run all tests:**

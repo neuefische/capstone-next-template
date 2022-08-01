@@ -1,11 +1,11 @@
-import {Link} from 'react-router-dom';
+import Link from 'next/link';
 
 export default function Header() {
 	return (
 		<header>
 			<nav>
-				<Link to="/">Home</Link>
-				<Link to="/about">About me</Link>
+				<Link href="/">Home</Link>
+				<Link href="/about">About me</Link>
 			</nav>
 		</header>
 	);

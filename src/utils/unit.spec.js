@@ -1,4 +1,4 @@
-import { pxToRem, rem } from './unit';
+import {pxToRem, rem} from './unit';
 
 describe('rem', () => {
 	it('should add the unit as a suffix', () => {
