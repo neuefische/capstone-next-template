@@ -59,7 +59,7 @@ Please follow this guide: https://vercel.com/docs/concepts/git
 **Run the development server:**
 
 ```bash
-npm run start
+npm run dev
 ```
 
 **Run storybook:**
