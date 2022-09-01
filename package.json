@@ -13,7 +13,6 @@
     "stylelint": "npx stylelint src/{**/*,*}.{js,jsx}",
     "storybook": "start-storybook -p 6006 -s public",
     "storybook:build": "build-storybook -s public",
-    "test:unit": "npm run jest",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "toc": "npx markdown-toc@1 README.md -i"
