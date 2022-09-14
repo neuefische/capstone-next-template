@@ -54,6 +54,24 @@ Please follow this guide: https://vercel.com/docs/concepts/git
 
 <p align="center"><img src="docs/resources/vercel-storybook.png" alt="Vercel Storybook settings" width="600"/></p>
 
+### Set up formatter
+
+Please adjust your formatter for this project. We enabled several eslint rules, therefore we need to
+use eslint as the default formatter.
+
+Add these lines to your `settings.json`.
+
+```json
+{
+	"[javascript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	}
+}
+```
+
 ## Getting started
 
 **Run the development server:**
@@ -70,8 +88,8 @@ npm run storybook
 
 ## Test Driven Development
 
-We use jest to write unit tests. Please look at the Documentation for [Jest](https://jestjs.io/)
-and [testing-library](https://testing-library.com/docs/react-testing-library/intro/).
+We use jest to write unit tests. Please look at the Documentation for [Jest](https://jestjs.io/) and
+[testing-library](https://testing-library.com/docs/react-testing-library/intro/).
 
 ## Commands
 
