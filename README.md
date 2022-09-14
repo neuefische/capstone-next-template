@@ -59,7 +59,8 @@ Please follow this guide: https://vercel.com/docs/concepts/git
 Please adjust your formatter for this project. We enabled several eslint rules, therefore we need to
 use eslint as the default formatter.
 
-Add these lines to your `settings.json`.
+Add these lines to your `settings.json`. We already added some settings in
+[.vscode/settings.json](.vscode/settings.json).
 
 ```json
 {
