@@ -25,7 +25,7 @@ In this example we can see how we can intuitively add a local state to a checkbo
 it.
 
 ```jsx
-import { useState } from "react";
+import {useState} from 'react';
 
 const Checkbox = () => {
 	const [checked, setChecked] = useState(false);
@@ -34,11 +34,11 @@ const Checkbox = () => {
 			<input
 				type="checkbox"
 				checked={checked}
-				onChange={(event_) => {
+				onChange={event_ => {
 					setChecked(event_.target.checked);
 				}}
 			/>
-			<div>State: {checked ? "ON" : "OFF"}</div>
+			<div>State: {checked ? 'ON' : 'OFF'}</div>
 		</label>
 	);
 };
@@ -49,7 +49,7 @@ const App = () => {
 			<Checkbox />
 		</>
 	);
-}
+};
 ```
 
 Step 2: Adding a default state
@@ -59,20 +59,20 @@ when we want to add a default state we can make use of React's
 `defaultChecked` to our component properties.
 
 ```jsx
-import { useState } from "react";
+import {useState} from 'react';
 
-const Checkbox = ({ defaultChecked }) => {
+const Checkbox = ({defaultChecked}) => {
 	const [checked, setChecked] = useState(defaultChecked);
 	return (
 		<label>
 			<input
 				type="checkbox"
 				checked={checked}
-				onChange={(event_) => {
+				onChange={event_ => {
 					setChecked(event_.target.checked);
 				}}
 			/>
-			<div>State: {checked ? "ON" : "OFF"}</div>
+			<div>State: {checked ? 'ON' : 'OFF'}</div>
 		</label>
 	);
 };
@@ -81,10 +81,10 @@ const App = () => {
 	return (
 		<>
 			<Checkbox />
-			<Checkbox	defaultChecked/>
+			<Checkbox defaultChecked />
 		</>
 	);
-}
+};
 ```
 
 Step 3: Allowing outside control
@@ -96,19 +96,19 @@ Let's [lift the state up](https://reactjs.org/docs/lifting-state-up.html). In ou
 host the state.
 
 ```jsx
-import { useState } from "react";
+import {useState} from 'react';
 
-const Checkbox = ({ checked, onChange }) => {
+const Checkbox = ({checked, onChange}) => {
 	return (
 		<label>
 			<input
 				type="checkbox"
 				checked={checked}
-				onChange={(event_) => {
+				onChange={event_ => {
 					onChange(event_.target.checked);
 				}}
 			/>
-			<div>State: {checked ? "ON" : "OFF"}</div>
+			<div>State: {checked ? 'ON' : 'OFF'}</div>
 		</label>
 	);
 };
@@ -118,15 +118,21 @@ const App = () => {
 
 	return (
 		<>
-			<Checkbox checked={appState} onChange={(checked) => {
-				setAppState(checked);
-			}}/>
-			<Checkbox checked={appState} onChange={(checked) => {
-				setAppState(checked);
-			}}/>
+			<Checkbox
+				checked={appState}
+				onChange={checked => {
+					setAppState(checked);
+				}}
+			/>
+			<Checkbox
+				checked={appState}
+				onChange={checked => {
+					setAppState(checked);
+				}}
+			/>
 		</>
 	);
-}
+};
 ```
 
 Step 4: Building State Providers
@@ -137,17 +143,11 @@ machines, in our case we will add a [context](https://reactjs.org/docs/context.h
 state of our feature.
 
 ```jsx
-import {
-	createContext,
-	useCallback,
-	useContext,
-	useMemo,
-	useState
-} from "react";
+import {createContext, useCallback, useContext, useMemo, useState} from 'react';
 
 const CheckboxContext = createContext();
 
-const CheckpoxProvider = ({ children }) => {
+const CheckpoxProvider = ({children}) => {
 	const [checked, setChecked] = useState(false);
 	const check = useCallback(() => {
 		setChecked(true);
@@ -155,16 +155,16 @@ const CheckpoxProvider = ({ children }) => {
 	const uncheck = useCallback(() => {
 		setChecked(true);
 	}, []);
-	const toggle = useCallback((requestedState?: boolean) => {
-		if (typeof requestedState === "boolean") {
+	const toggle = useCallback(requestedState => {
+		if (typeof requestedState === 'boolean') {
 			setChecked(requestedState);
 		} else {
-			setChecked((previousState) => !previousState);
+			setChecked(previousState => !previousState);
 		}
 	}, []);
-    
+
 	return (
-		<CheckboxContext.Provider value={{ checked, check, uncheck, toggle }}>
+		<CheckboxContext.Provider value={{checked, check, uncheck, toggle}}>
 			{children}
 		</CheckboxContext.Provider>
 	);
@@ -172,35 +172,35 @@ const CheckpoxProvider = ({ children }) => {
 
 const useCheckbox = () => useContext(CheckboxContext);
 
-const Checkbox = ({ checked, onChange }) => {
+const Checkbox = ({checked, onChange}) => {
 	const [localChecked, setLocalChecked] = useState(checked);
 	return (
 		<label>
 			<input
 				type="checkbox"
 				checked={checked}
-				onChange={(event_) => {
+				onChange={event_ => {
 					onChange(event_.target.checked);
 				}}
 			/>
-			<div>State: {checked ? "ON" : "OFF"}</div>
+			<div>State: {checked ? 'ON' : 'OFF'}</div>
 		</label>
 	);
 };
 
 const Checkboxes = () => {
-	const { toggle, checked } = useCheckbox();
+	const {toggle, checked} = useCheckbox();
 	return (
 		<>
 			<Checkbox
 				checked={checked}
-				onChange={(requestedChecked) => {
+				onChange={requestedChecked => {
 					toggle(requestedChecked);
 				}}
 			/>
 			<Checkbox
 				checked={checked}
-				onChange={(requestedChecked) => {
+				onChange={requestedChecked => {
 					toggle(requestedChecked);
 				}}
 			/>
@@ -223,22 +223,23 @@ We added a context and decided to define a small state machine `CheckboxProvider
 [hook](https://reactjs.org/docs/hooks-reference.html) to allow easy access to the machine.
 
 We provide three callbacks with "common names".
-```jsx
-	const activate = useCallback(() => {
-		/* activate */
-	}, []);
 
-	const deactivate = useCallback(() => {
-		/* deactivate */
-	}, []);
-	
-	const toggle = useCallback((requestedState) => {
-		if (typeof requestedState === "boolean") {
-			/* satisfy request */
-		} else {
-			/* toggle */
-		}
-	}, []);
+```jsx
+const activate = useCallback(() => {
+	/* activate */
+}, []);
+
+const deactivate = useCallback(() => {
+	/* deactivate */
+}, []);
+
+const toggle = useCallback(requestedState => {
+	if (typeof requestedState === 'boolean') {
+		/* satisfy request */
+	} else {
+		/* toggle */
+	}
+}, []);
 ```
 
 Common names allow us to easily understand how to operate different machines. We can also create the
@@ -262,8 +263,9 @@ This decision should be discussed with the team and then respected to keep the p
 communication. Speaking different languages can cause major issues, a very good example is the
 [Mars Climate Orbiter](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter) failure.
 
-> An investigation attributed the failure to a measurement mismatch between two software systems: metric units by NASA and non-metric (imperial or "English") units by spacecraft builder Lockheed Martin.
-
+> An investigation attributed the failure to a measurement mismatch between two software systems:
+> metric units by NASA and non-metric (imperial or "English") units by spacecraft builder Lockheed
+> Martin.
 
 ## Global states
 
@@ -274,4 +276,3 @@ If you need to share a state with other components of your app it might be easie
 
 We hope this lesson helped you to understand how to keep it simple, stupid, while still allowing for
 complex, big scale software. Don't overthink it, KISS 💋.
-

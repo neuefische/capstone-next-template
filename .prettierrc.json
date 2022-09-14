@@ -4,5 +4,6 @@
   "singleQuote": true,
   "quoteProps": "as-needed",
   "bracketSpacing": false,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "proseWrap": "always"
 }
