@@ -7,6 +7,7 @@
     "IronGeek.vscode-env",
     "Orta.vscode-jest",
     "hex-ci.stylelint-plus",
-    "styled-components.vscode-styled-components"
+    "styled-components.vscode-styled-components",
+    "formulahendry.auto-rename-tag"
   ]
 }
