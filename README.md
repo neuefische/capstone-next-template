@@ -9,6 +9,7 @@ This is a template for [Next.js](https://nextjs.org/) with additional tools.
     -   [Set up Vercel](#set-up-vercel)
         -   [App](#app)
         -   [Storybook](#storybook)
+    -   [Set up formatter](#set-up-formatter)
 -   [Getting started](#getting-started)
 -   [Test Driven Development](#test-driven-development)
 -   [Commands](#commands)
