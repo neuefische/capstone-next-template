@@ -2,6 +2,10 @@
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
+	compiler: {
+		reactRemoveProperties: true,
+		styledComponents: true,
+	},
 };
 
-module.exports = nextConfig;
+export default  nextConfig;
